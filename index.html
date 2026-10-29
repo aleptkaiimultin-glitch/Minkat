@@ -1,147 +1,333 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MINKAT LOADER</title>
+<meta name="theme-color" content="#080b09">
+<meta name="description" content="MINKAT LOADER — Minecraft Java Edition">
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:#080b0a;
-  color:#e8f5ec;
-  font-family:Arial,sans-serif;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow-x:hidden;
+:root {
+  --bg: #080b09;
+  --panel: #101712;
+  --green: #58ff91;
+  --muted: #8b9a90;
+  --border: #26382c;
 }
-body:before{
-  content:"";
-  position:fixed;
-  width:600px;height:600px;
-  background:#00ff6620;
-  filter:blur(120px);
-  border-radius:50%;
-  top:10%;left:calc(50% - 300px);
-  pointer-events:none;
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #effff3;
+  font-family: "Segoe UI", Arial, sans-serif;
+  overflow-x: hidden;
 }
-.card{
-  position:relative;
-  width:min(540px,92%);
-  padding:38px 28px;
-  text-align:center;
-  background:#0d120f;
-  border:1px solid #214b30;
-  border-radius:20px;
-  box-shadow:0 0 60px #00ff6610;
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
-.logo{
-  width:72px;height:72px;
-  margin:0 auto 18px;
-  display:grid;place-items:center;
-  background:#12351e;
-  border:1px solid #37f477;
-  border-radius:18px;
-  color:#55ff88;
-  font-size:36px;
-  font-weight:bold;
+.nav {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  border-bottom: 1px solid #1d2a20;
+  background: rgba(8,11,9,.88);
+  backdrop-filter: blur(14px);
 }
-h1{
-  font-size:38px;
-  margin:8px 0;
-  letter-spacing:3px;
+.logo {
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
-h1 span{color:#42ff7b}
-.subtitle{color:#91a399;font-size:14px}
-.status{
-  display:inline-block;
-  margin:18px 0;
-  padding:7px 12px;
-  border:1px solid #245e37;
-  border-radius:30px;
-  color:#62ff91;
-  font-size:12px;
+.logo span { color: var(--green); }
+.nav-label {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 2px;
 }
-.line{
-  height:1px;
-  background:#203328;
-  margin:22px 0;
+main {
+  width: min(1100px, 92%);
+  margin: auto;
 }
-.info{
-  display:flex;
-  justify-content:space-between;
-  color:#9aa9a0;
-  font-size:13px;
-  margin:13px 0;
+.hero {
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 75px 0;
 }
-.info b{color:#e5f9eb}
-.download{
-  display:block;
-  margin-top:28px;
-  padding:17px;
-  border-radius:10px;
-  background:#39f477;
-  color:#061009;
-  font-size:15px;
-  font-weight:bold;
-  text-decoration:none;
-  transition:.2s;
+.badge {
+  border: 1px solid #31553b;
+  background: #102117;
+  color: var(--green);
+  border-radius: 30px;
+  padding: 9px 16px;
+  font-size: 11px;
+  letter-spacing: 2px;
 }
-.download:hover{
-  background:#75ff9e;
-  transform:translateY(-2px);
-  box-shadow:0 0 28px #39f47740;
+h1 {
+  font-size: clamp(48px, 9vw, 94px);
+  line-height: 1;
+  letter-spacing: -4px;
+  margin: 28px 0 16px;
 }
-.note{
-  color:#627168;
-  font-size:11px;
-  line-height:1.6;
-  margin-top:20px;
+h1 span {
+  color: var(--green);
+  text-shadow: 0 0 35px #40ff7850;
 }
-footer{
-  margin-top:25px;
-  color:#506057;
-  font-size:11px;
+.subtitle {
+  color: var(--muted);
+  max-width: 570px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  justify-content: center;
+  margin-top: 32px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 53px;
+  padding: 0 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .5px;
+  transition: .2s;
+  cursor: pointer;
+}
+.btn-primary {
+  color: #071009;
+  background: var(--green);
+  box-shadow: 0 0 30px #54ff9120;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 38px #54ff9145;
+  background: #a0ffbd;
+}
+.btn-secondary {
+  color: #eaffef;
+  background: #111a14;
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover {
+  border-color: var(--green);
+}
+.status {
+  margin-top: 23px;
+  color: #718277;
+  font-size: 11px;
+}
+.status span { color: var(--green); }
+.section-title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+.section-desc {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 35px;
+  line-height: 1.7;
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin: 25px 0 100px;
+}
+.card {
+  background: linear-gradient(145deg, #111a14, #0b100c);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 26px;
+  transition: .2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #477953;
+}
+.card-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--green);
+  background: #193020;
+  font-size: 21px;
+}
+.card h3 { margin: 20px 0 10px; }
+.card p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 13px;
+}
+.download-panel {
+  border: 1px solid #31533a;
+  border-radius: 16px;
+  background: radial-gradient(ellipse at top, #193321, #0d130f 70%);
+  padding: 45px 20px;
+  text-align: center;
+  margin-bottom: 90px;
+}
+.download-panel h2 { font-size: 30px; }
+.download-panel p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+footer {
+  border-top: 1px solid #1d2a20;
+  padding: 27px 8%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  color: #718277;
+  font-size: 12px;
+}
+footer strong { color: var(--green); }
+@media(max-width:700px) {
+  .features { grid-template-columns: 1fr; }
+  .nav { padding: 0 5%; }
+  .nav-label { font-size: 9px; }
+  h1 { letter-spacing: -2px; }
+  .hero { min-height: 570px; }
 }
 </style>
 </head>
 <body>
-<main class="card">
-  <div class="logo">M</div>
 
-  <h1>MINKAT <span>LOADER</span></h1>
-  <div class="subtitle">MINECRAFT CLIENT</div>
+<canvas id="particles"></canvas>
 
-  <div class="status">● LOADER DOWNLOAD</div>
+<header class="nav">
+  <div class="logo">MINKAT<span>.</span></div>
+  <div class="nav-label">JAVA EDITION / 1.21.4</div>
+</header>
 
-  <div class="line"></div>
+<main>
+  <section class="hero">
+    <div class="badge">● &nbsp; MINKAT CLIENT PROJECT</div>
+    <h1>MINKAT<br><span>LOADER</span></h1>
+    <p class="subtitle">
+      Твой Minecraft. Твои настройки. Твой стиль.
+      Лаконичный лаунчер для Minecraft Java Edition
+      с тёмным интерфейсом и неоновыми акцентами.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="./MINKAT_LOADER.exe" download>
+        ↓ &nbsp; СКАЧАТЬ ЛОАДЕР
+      </a>
+      <a class="btn btn-secondary" href="#features">
+        УЗНАТЬ БОЛЬШЕ &nbsp; ↓
+      </a>
+    </div>
+    <div class="status"><span>●</span> WINDOWS &nbsp; / &nbsp; JAVA 1.21.4</div>
+  </section>
 
-  <div class="info">
-    <span>Программа</span>
-    <b>Minkat Loader</b>
-  </div>
-  <div class="info">
-    <span>Платформа</span>
-    <b>Windows</b>
-  </div>
-  <div class="info">
-    <span>Стоимость</span>
-    <b>Бесплатно</b>
-  </div>
+  <section id="features">
+    <h2 class="section-title">Создан для игры</h2>
+    <p class="section-desc">
+      Минималистичный интерфейс и удобные функции.
+    </p>
+    <div class="features">
+      <article class="card">
+        <div class="card-icon">◈</div>
+        <h3>Тёмный дизайн</h3>
+        <p>Чёрная поверхность, зелёные акценты и стильный интерфейс MINKAT.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">⌘</div>
+        <h3>Удобный запуск</h3>
+        <p>Быстрый доступ к лаунчеру и простая организация файлов проекта.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">⚙</div>
+        <h3>Fabric 1.21.4</h3>
+        <p>Поддержка рабочего процесса установки клиентских Fabric-модов.</p>
+      </article>
+    </div>
+  </section>
 
-  <a class="download" href="MinkatLoader.exe" download>
-    ↓ &nbsp; СКАЧАТЬ ЛОАДЕР
-  </a>
-
-  <div class="note">
-    Скачивай файл безопасно.<br>
-    Перед запуском желательно запускать майнкрафт сразу.
-  </div>
-
-  <footer>© 2026 MINKAT · ALL RIGHTS RESERVED</footer>
+  <section class="download-panel">
+    <div class="badge">MINKAT / WINDOWS</div>
+    <h2>Готов к запуску?</h2>
+    <p>
+      Скачай сборку из этого репозитория и следуй
+      инструкциям установки.
+    </p>
+    <a class="btn btn-primary" href="./MINKAT_LOADER.exe" download>
+      ↓ &nbsp; СКАЧАТЬ MINKAT
+    </a>
+  </section>
 </main>
+
+<footer>
+  <div><strong>MINKAT.</strong> &nbsp; COMMUNITY PROJECT</div>
+  <div>Неофициальный проект сообщества Minecraft.</div>
+</footer>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+let w, h, particles = [];
+
+function resize() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  w = window.innerWidth;
+  h = window.innerHeight;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  canvas.style.width = w + "px";
+  canvas.style.height = h + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  particles = Array.from({length: 65}, () => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 1.7 + .5,
+    v: Math.random() * .45 + .12,
+    a: Math.random() * .5 + .15
+  }));
+}
+
+function animate() {
+  ctx.clearRect(0, 0, w, h);
+  for (const p of particles) {
+    p.y -= p.v;
+    if (p.y < -5) {
+      p.y = h + 5;
+      p.x = Math.random() * w;
+    }
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(88,255,145,${p.a})`;
+    ctx.fill();
+  }
+  requestAnimationFrame(animate);
+}
+window.addEventListener("resize", resize);
+resize();
+animate();
+</script>
+
 </body>
 </html>
+```
