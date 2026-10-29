@@ -2,22 +2,146 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Minkat</title>
-  <style>
-    body {
-      background: #111827;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 80px 20px;
-    }
-    h1 { color: #60a5fa; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MINKAT LOADER</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#080b0a;
+  color:#e8f5ec;
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;
+  width:600px;height:600px;
+  background:#00ff6620;
+  filter:blur(120px);
+  border-radius:50%;
+  top:10%;left:calc(50% - 300px);
+  pointer-events:none;
+}
+.card{
+  position:relative;
+  width:min(540px,92%);
+  padding:38px 28px;
+  text-align:center;
+  background:#0d120f;
+  border:1px solid #214b30;
+  border-radius:20px;
+  box-shadow:0 0 60px #00ff6610;
+}
+.logo{
+  width:72px;height:72px;
+  margin:0 auto 18px;
+  display:grid;place-items:center;
+  background:#12351e;
+  border:1px solid #37f477;
+  border-radius:18px;
+  color:#55ff88;
+  font-size:36px;
+  font-weight:bold;
+}
+h1{
+  font-size:38px;
+  margin:8px 0;
+  letter-spacing:3px;
+}
+h1 span{color:#42ff7b}
+.subtitle{color:#91a399;font-size:14px}
+.status{
+  display:inline-block;
+  margin:18px 0;
+  padding:7px 12px;
+  border:1px solid #245e37;
+  border-radius:30px;
+  color:#62ff91;
+  font-size:12px;
+}
+.line{
+  height:1px;
+  background:#203328;
+  margin:22px 0;
+}
+.info{
+  display:flex;
+  justify-content:space-between;
+  color:#9aa9a0;
+  font-size:13px;
+  margin:13px 0;
+}
+.info b{color:#e5f9eb}
+.download{
+  display:block;
+  margin-top:28px;
+  padding:17px;
+  border-radius:10px;
+  background:#39f477;
+  color:#061009;
+  font-size:15px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.2s;
+}
+.download:hover{
+  background:#75ff9e;
+  transform:translateY(-2px);
+  box-shadow:0 0 28px #39f47740;
+}
+.note{
+  color:#627168;
+  font-size:11px;
+  line-height:1.6;
+  margin-top:20px;
+}
+footer{
+  margin-top:25px;
+  color:#506057;
+  font-size:11px;
+}
+</style>
 </head>
 <body>
-  <h1>Добро пожаловать на Minkat!</h1>
-  <p>Мой первый сайт работает!</p>
+<main class="card">
+  <div class="logo">M</div>
+
+  <h1>MINKAT <span>LOADER</span></h1>
+  <div class="subtitle">MINECRAFT CLIENT</div>
+
+  <div class="status">● LOADER DOWNLOAD</div>
+
+  <div class="line"></div>
+
+  <div class="info">
+    <span>Программа</span>
+    <b>Minkat Loader</b>
+  </div>
+  <div class="info">
+    <span>Платформа</span>
+    <b>Windows</b>
+  </div>
+  <div class="info">
+    <span>Стоимость</span>
+    <b>Бесплатно</b>
+  </div>
+
+  <a class="download" href="loader.exe" download>
+    ↓ &nbsp; СКАЧАТЬ ЛОАДЕР
+  </a>
+
+  <div class="note">
+    Скачивай файлы только из доверенных источников.<br>
+    Перед запуском проверь файл антивирусом.
+  </div>
+
+  <footer>© 2026 MINKAT · ALL RIGHTS RESERVED</footer>
+</main>
 </body>
 </html>
